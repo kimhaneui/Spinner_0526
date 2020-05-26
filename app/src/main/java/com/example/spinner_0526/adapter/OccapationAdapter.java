@@ -43,4 +43,21 @@ public class OccapationAdapter extends ArrayAdapter<Occupation> {
         icon.setImageResource(data.getImageId());
         return row;
     }
+
+    @Override
+    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View row = convertView;
+        if(row==null){
+            row = inf.inflate(R.layout.occupation_spinner_list_item,null);
+        }
+        ImageView icon = row.findViewById(R.id.icon);
+        TextView nameTxt = row.findViewById(R.id.nameTxt);
+
+        Occupation data = mList.get(position);
+
+        nameTxt.setText(data.getName());
+
+        icon.setImageResource(data.getImageId());
+        return row;
+    }
 }
